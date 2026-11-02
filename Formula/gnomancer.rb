@@ -3,8 +3,8 @@ class Gnomancer < Formula
 
   desc "Local, private deep dive into your raw DNA file: haplogroups, traits, ClinVar, PharmCAT"
   homepage "https://gnomancer.com"
-  url "https://files.pythonhosted.org/packages/a8/3f/bfc2fbe6e542bda47d64008fb7b199c8cc3b98e4bc19e52ef51b830bd8bf/gnomancer-0.4.2.tar.gz"
-  sha256 "3abd2599c3f7cd5c7519d1e20b72d0fc91378af1727bdc39434d72f17c7eab64"
+  url "https://files.pythonhosted.org/packages/d5/40/319f2afdf4ef9d4f0190cc9faa07f4959cedace846eadfa27069d5ae0907/gnomancer-0.5.0.tar.gz"
+  sha256 "03ff3856ee850e126399a99a1438143d84f44d136349535d5f343c3f340d4e55"
   license "MIT"
 
   depends_on "openjdk"
