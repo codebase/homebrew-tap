@@ -14,7 +14,9 @@ class Gnomancer < Formula
     venv = virtualenv_create(libexec, "python3.12")
     # Install from PyPI with wheels (pandas, numpy, mcp and friends); the formula pins the gnomancer version above.
     # Homebrew's venv has no pip binary of its own; run pip through the venv's python (pip comes from python@3.12).
-    system libexec/"bin/python", "-m", "pip", "install", "--no-cache-dir", "gnomancer[mcp]==#{version}", "git+https://github.com/23andMe/yhaplo"
+    # --use-deprecated=legacy-certs: pip's truststore crashes inside Homebrew's sandbox, where platform.mac_ver() is empty.
+    system libexec/"bin/python", "-m", "pip", "install", "--no-cache-dir", "--use-deprecated=legacy-certs",
+           "gnomancer[mcp]==#{version}", "git+https://github.com/23andMe/yhaplo"
     bin.install_symlink libexec/"bin/gnomancer"
     bin.install_symlink libexec/"bin/gnomancer-mcp"
   end
