@@ -3,8 +3,8 @@ class Gnomancer < Formula
 
   desc "Local, private deep dive into your raw DNA file: haplogroups, traits, ClinVar, PharmCAT"
   homepage "https://gnomancer.com"
-  url "https://files.pythonhosted.org/packages/d5/40/319f2afdf4ef9d4f0190cc9faa07f4959cedace846eadfa27069d5ae0907/gnomancer-0.5.0.tar.gz"
-  sha256 "03ff3856ee850e126399a99a1438143d84f44d136349535d5f343c3f340d4e55"
+  url "https://files.pythonhosted.org/packages/43/a6/c998f136cf7583bfde49287bf4ba4d751b7a9ed2a1bd2f633ad88baf2ef9/gnomancer-0.5.1.tar.gz"
+  sha256 "80b657aa9c637e1ec9c3ad0796e15f3db6b8a97b39e712c6b84285482130f89d"
   license "MIT"
 
   depends_on "openjdk"
@@ -14,7 +14,7 @@ class Gnomancer < Formula
     venv = virtualenv_create(libexec, "python3.13")
     # Install from PyPI with wheels (pandas, numpy, mcp and friends); the formula pins the gnomancer version above.
     # Homebrew's venv has no pip binary of its own; run pip through the venv's python (pip comes from python@3.13).
-    system libexec/"bin/python", "-m", "pip", "install", "--no-cache-dir", "gnomancer[mcp]==#{version}", "git+https://github.com/23andMe/yhaplo"
+    system libexec/"bin/python", "-m", "pip", "install", "--no-cache-dir", "gnomancer==#{version}", "git+https://github.com/23andMe/yhaplo"
     bin.install_symlink libexec/"bin/gnomancer"
     bin.install_symlink libexec/"bin/gnomancer-mcp"
   end
